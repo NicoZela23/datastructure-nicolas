@@ -1,12 +1,15 @@
 <a name="readme-top"></a>
 ![Maintained][Maintained-shield]
+![Forks][Forks-shield]
+![Pull Request][PullRequest-shield]
+![Pull Request Closed][PullRequestclosed-shield]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="130" height="80">
+  <a href="https://github.com/NicoZela23/datastructure-nicolas">
+    <img src="images/logo.png" alt="Logo" width="150" height="110">
   </a>
 
 <h3 align="center">Data Structures</h3>
@@ -17,7 +20,7 @@
     <a href="https://github.com/NicoZela23/datastructure-nicolas"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/NicoZela23/datastructure-nicolas">View Demo</a>
     ·
     <a href="https://github.com/NicoZela23/datastructure-nicolas/issues">Report Bug</a>
     ·
@@ -88,6 +91,9 @@ Not implemented yet :P
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/nicozela/
 [Maintained-shield]: https://img.shields.io/badge/Maintained%3F-yes-green.svg
+[Forks-shield]: https://img.shields.io/github/forks/NicoZela23/datastructure-nicolas.svg
+[PullRequest-shield]: https://img.shields.io/github/issues-pr/NicoZela23/datastructure-nicolas.svg
+[PullRequestclosed-shield]: 	https://img.shields.io/github/issues-pr-closed/NicoZela23/datastructure-nicolas.svg
 [product-screenshot]: images/screenshot.png
 [Java]: https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
 [Java-url]: https://www.java.com/es/
