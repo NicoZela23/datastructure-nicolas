@@ -18,7 +18,7 @@ public class LinkedList implements ILinkedList{
     }
 
     @Override
-    public Boolean isEmpty() {
+    public boolean isEmpty() {
         return head == null;
     }
 
@@ -53,11 +53,24 @@ public class LinkedList implements ILinkedList{
     @Override
     public void addLast(int data) {
         Node lastNode = last();
+
+        if(lastNode == null){
+            head = new Node(data);
+            return;
+        }
         lastNode.next = new Node(data);
     }
 
     @Override
-    public void removeFirts() {
+    public void removeFirst() {
+        if (!isEmpty()) {
+            head = head.next;
+            if (head == null) {
+                System.out.println("The list is now empty.");
+            }
+
+        }
 
     }
+
 }

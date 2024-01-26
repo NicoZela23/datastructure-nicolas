@@ -4,13 +4,14 @@ import nzo.incremental.interfaces.IStructureManager;
 
 public class Main {
     public static void main(String[] args) {
-        prinMenu();
+        printMenu();
+        // Input Reader
         IStructureManager structureManager = StructureManagerFactory.getManager("A");
         structureManager.run();
     }
 
-    private static void prinMenu(){
-        System.out.println("Choosa a data structure");
+    private static void printMenu(){
+        System.out.println("Chose a data structure");
         System.out.println("A - Linked List");
     }
 } 
