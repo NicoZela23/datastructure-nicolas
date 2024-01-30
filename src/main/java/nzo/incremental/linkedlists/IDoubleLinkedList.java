@@ -1,11 +1,12 @@
 package nzo.incremental.linkedlists;
 
-public interface ILinkedList<T> {
+public interface IDoubleLinkedList<T> {
     int size();
     boolean isEmpty();
-    Node<T> first();
-    Node<T> last();
+    DoubleEdgeNode<T> first();
+    DoubleEdgeNode<T> last();
     void addFirst(T data);
     void addLast(T data);
     void removeFirst();
+    void removeLast();
 }
