@@ -75,4 +75,13 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     }
 
+    @Override
+    public void print() {
+        Node<T> current = head;
+        while (current != null){
+            System.out.println(current.data);
+            current = current.next;
+        }
+    }
+
 }

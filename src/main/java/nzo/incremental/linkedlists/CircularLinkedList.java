@@ -75,4 +75,9 @@ public class CircularLinkedList<T> implements ILinkedList<T> {
             trailer.next = secondNode;
         }
     }
+
+    @Override
+    public void print() {
+
+    }
 }

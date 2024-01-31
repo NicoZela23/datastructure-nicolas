@@ -2,9 +2,9 @@ package nzo.incremental.linkedlists;
 
 import nzo.incremental.interfaces.IDoubleLinkedList;
 
-public class DoubleLinkedList<T> implements IDoubleLinkedList<T> {
-    private DoubleEdgeNode<T> head;
-    private DoubleEdgeNode<T> tail;
+public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
+    private DoubleEdgeNode<D> head;
+    private DoubleEdgeNode<D> tail;
 
     public DoubleLinkedList() {
         head = new DoubleEdgeNode<>(null);
@@ -21,7 +21,7 @@ public class DoubleLinkedList<T> implements IDoubleLinkedList<T> {
         }
 
         int size = 0;
-        DoubleEdgeNode<T> current = head.next;
+        DoubleEdgeNode<D> current = head.next;
         while (current != tail){
             size++;
             current = current.next;
@@ -35,18 +35,18 @@ public class DoubleLinkedList<T> implements IDoubleLinkedList<T> {
     }
 
     @Override
-    public DoubleEdgeNode<T> first() {
+    public DoubleEdgeNode<D> first() {
         return head;
     }
 
     @Override
-    public DoubleEdgeNode<T> last() {
+    public DoubleEdgeNode<D> last() {
         return tail;
     }
 
     @Override
-    public void addFirst(T data) {
-        DoubleEdgeNode<T> newNode = new DoubleEdgeNode<>(data);
+    public void addFirst(D data) {
+        DoubleEdgeNode<D> newNode = new DoubleEdgeNode<>(data);
         if (isEmpty()){
             head = newNode;
         }else{
@@ -57,8 +57,8 @@ public class DoubleLinkedList<T> implements IDoubleLinkedList<T> {
     }
 
     @Override
-    public void addLast(T data) {
-        DoubleEdgeNode<T> newNode = new DoubleEdgeNode<>(data);
+    public void addLast(D data) {
+        DoubleEdgeNode<D> newNode = new DoubleEdgeNode<>(data);
         if (isEmpty()) {
             head = newNode;
             tail = newNode;
@@ -87,5 +87,10 @@ public class DoubleLinkedList<T> implements IDoubleLinkedList<T> {
             tail = tail.prev;
             tail.next = null;
         }
+    }
+
+    @Override
+    public void print() {
+
     }
 }
