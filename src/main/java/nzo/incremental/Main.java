@@ -1,7 +1,6 @@
 package nzo.incremental;
 
 import nzo.incremental.interfaces.IStructureManager;
-import nzo.incremental.linkedlists.LinkedListMenu;
 import nzo.incremental.menu.ConsoleMenu;
 import nzo.incremental.menu.MenuFactory;
 

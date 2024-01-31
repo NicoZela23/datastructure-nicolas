@@ -1,18 +1,18 @@
 package nzo.incremental.linkedlists;
 
-public class DoubleLinkedList<T> implements IDoubleLinkedList<T>{
+import nzo.incremental.interfaces.IDoubleLinkedList;
+
+public class DoubleLinkedList<T> implements IDoubleLinkedList<T> {
     private DoubleEdgeNode<T> head;
     private DoubleEdgeNode<T> tail;
 
     public DoubleLinkedList() {
-        DoubleEdgeNode<T> head = new DoubleEdgeNode<>(null);
-        DoubleEdgeNode<T> tail = new DoubleEdgeNode<>(null);
+        head = new DoubleEdgeNode<>(null);
+        tail = new DoubleEdgeNode<>(null);
         head.next = tail;
         tail.prev = head;
-
-        this.head = head;
-        this.tail = tail;
     }
+
 
     @Override
     public int size() {
@@ -46,20 +46,46 @@ public class DoubleLinkedList<T> implements IDoubleLinkedList<T>{
 
     @Override
     public void addFirst(T data) {
+        DoubleEdgeNode<T> newNode = new DoubleEdgeNode<>(data);
+        if (isEmpty()){
+            head = newNode;
+        }else{
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
     }
 
     @Override
     public void addLast(T data) {
-
+        DoubleEdgeNode<T> newNode = new DoubleEdgeNode<>(data);
+        if (isEmpty()) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
+        }
     }
+
 
     @Override
     public void removeFirst() {
-
+        if (isEmpty()){
+            return;
+        }
+        head = head.next;
+        head.prev = null;
     }
 
     @Override
     public void removeLast() {
-
+        if (isEmpty()){
+            return;
+        }else{
+            tail = tail.prev;
+            tail.next = null;
+        }
     }
 }

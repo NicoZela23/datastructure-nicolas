@@ -1,15 +1,18 @@
 package nzo.incremental.linkedlists;
 
-public class CircularLinkedList<T> implements ILinkedList<T>{
+import nzo.incremental.interfaces.ILinkedList;
+
+public class CircularLinkedList<T> implements ILinkedList<T> {
     Node<T> trailer;
+
     @Override
     public int size() {
-        if (isEmpty()){
+        if (isEmpty()) {
             return 0;
         }
         Node<T> current = trailer.next;
         int size = 1;
-        while (current != trailer){
+        while (current != trailer) {
             size++;
             current = current.next;
         }
@@ -23,7 +26,7 @@ public class CircularLinkedList<T> implements ILinkedList<T>{
 
     @Override
     public Node<T> first() {
-        return trailer.next;
+        return trailer != null ? trailer.next : null;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class CircularLinkedList<T> implements ILinkedList<T>{
 
     @Override
     public void addFirst(T data) {
-        Node<T> newNode = new Node<T>(data);
+        Node<T> newNode = new Node<>(data);
         if (isEmpty()) {
             newNode.next = newNode;
             trailer = newNode;
@@ -45,28 +48,29 @@ public class CircularLinkedList<T> implements ILinkedList<T>{
 
     @Override
     public void addLast(T data) {
-        Node<T> lastNode = last();
+        Node<T> newNode = new Node<>(data);
 
-        if (lastNode == null) {
-            Node<T> newNode = new Node<T>(data);
+        if (isEmpty()) {
             newNode.next = newNode;
+            trailer = newNode;
+        } else {
+            newNode.next = trailer.next;
             trailer.next = newNode;
-            return;
+            trailer = newNode;
         }
-        lastNode.next = new Node<T>(data);
     }
-
 
     @Override
     public void removeFirst() {
-        if(isEmpty()){
+        if (isEmpty()) {
             return;
         }
+
         Node<T> firstNode = trailer.next;
         Node<T> secondNode = firstNode.next;
 
-        if(firstNode == secondNode){
-            trailer.next = null;
+        if (firstNode == secondNode) {
+            trailer = null;
         } else {
             trailer.next = secondNode;
         }

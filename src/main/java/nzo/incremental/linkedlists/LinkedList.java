@@ -1,6 +1,8 @@
 package nzo.incremental.linkedlists;
 
-public class LinkedList<T> implements ILinkedList<T>{
+import nzo.incremental.interfaces.ILinkedList;
+
+public class LinkedList<T> implements ILinkedList<T> {
     Node<T> head;
     @Override
     public int size() {

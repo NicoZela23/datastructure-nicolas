@@ -1,4 +1,6 @@
-package nzo.incremental.linkedlists;
+package nzo.incremental.interfaces;
+
+import nzo.incremental.linkedlists.DoubleEdgeNode;
 
 public interface IDoubleLinkedList<T> {
     int size();

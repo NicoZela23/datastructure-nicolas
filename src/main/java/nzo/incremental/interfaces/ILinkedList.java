@@ -1,4 +1,6 @@
-package nzo.incremental.linkedlists;
+package nzo.incremental.interfaces;
+
+import nzo.incremental.linkedlists.Node;
 
 public interface ILinkedList<T> {
     int size();

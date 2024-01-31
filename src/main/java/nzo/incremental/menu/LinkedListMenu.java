@@ -1,8 +1,4 @@
-package nzo.incremental.linkedlists;
-
-import nzo.incremental.menu.ConsoleMenu;
-import nzo.incremental.menu.MenuFactory;
-
+package nzo.incremental.menu;
 public class LinkedListMenu extends MenuFactory {
     @Override
     public ConsoleMenu createMenu() {

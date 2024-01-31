@@ -2,6 +2,7 @@ package nzo.incremental.linkedlists;
 
 import nzo.incremental.interfaces.IStructureManager;
 import nzo.incremental.menu.ConsoleMenu;
+import nzo.incremental.menu.LinkedListMenu;
 import nzo.incremental.menu.MenuFactory;
 
 public class LinkedListManager implements IStructureManager {

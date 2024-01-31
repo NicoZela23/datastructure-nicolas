@@ -1,4 +1,4 @@
-package nzo.incremental.stacks;
+package nzo.incremental.interfaces;
 
 public interface IStack {
     void push(int e);
