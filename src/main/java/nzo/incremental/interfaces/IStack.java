@@ -6,6 +6,5 @@ public interface IStack<E>{
     E top();
     boolean isEmpty();
     int size();
-
     void print();
 }

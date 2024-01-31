@@ -82,7 +82,7 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
     @Override
     public void removeLast() {
         if (isEmpty()){
-            return;
+            System.out.println("Empty linked list");
         }else{
             tail = tail.prev;
             tail.next = null;
