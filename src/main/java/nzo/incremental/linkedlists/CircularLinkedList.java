@@ -33,16 +33,42 @@ public class CircularLinkedList<T> implements ILinkedList<T>{
 
     @Override
     public void addFirst(T data) {
-
+        Node<T> newNode = new Node<T>(data);
+        if (isEmpty()) {
+            newNode.next = newNode;
+            trailer = newNode;
+        } else {
+            newNode.next = trailer.next;
+            trailer.next = newNode;
+        }
     }
 
     @Override
     public void addLast(T data) {
+        Node<T> lastNode = last();
 
+        if (lastNode == null) {
+            Node<T> newNode = new Node<T>(data);
+            newNode.next = newNode;
+            trailer.next = newNode;
+            return;
+        }
+        lastNode.next = new Node<T>(data);
     }
+
 
     @Override
     public void removeFirst() {
+        if(isEmpty()){
+            return;
+        }
+        Node<T> firstNode = trailer.next;
+        Node<T> secondNode = firstNode.next;
 
+        if(firstNode == secondNode){
+            trailer.next = null;
+        } else {
+            trailer.next = secondNode;
+        }
     }
 }

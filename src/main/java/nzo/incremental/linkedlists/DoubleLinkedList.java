@@ -36,17 +36,16 @@ public class DoubleLinkedList<T> implements IDoubleLinkedList<T>{
 
     @Override
     public DoubleEdgeNode<T> first() {
-        return null;
+        return head;
     }
 
     @Override
     public DoubleEdgeNode<T> last() {
-        return null;
+        return tail;
     }
 
     @Override
     public void addFirst(T data) {
-
     }
 
     @Override
