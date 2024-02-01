@@ -54,8 +54,12 @@ public class LinkedListStack<E> implements IStack<E> {
         list.print();
     }
     public E get(int index) {
+        int size = list.size();
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
         Node<E> current = list.first();
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < size - index - 1; i++) {
             current = current.next;
         }
         return current.data;
