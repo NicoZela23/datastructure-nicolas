@@ -9,20 +9,19 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
     public DoubleLinkedList() {
         head = new DoubleEdgeNode<>(null);
         tail = new DoubleEdgeNode<>(null);
+
         head.next = tail;
         tail.prev = head;
     }
 
-
     @Override
     public int size() {
-        if(isEmpty()){
+        if (isEmpty()){
             return 0;
         }
-
         int size = 0;
         DoubleEdgeNode<D> current = head.next;
-        while (current != tail){
+        while (current != tail) {
             size++;
             current = current.next;
         }
@@ -36,61 +35,65 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
 
     @Override
     public DoubleEdgeNode<D> first() {
-        return head;
+        if (isEmpty()) {
+            System.out.println("Double Linked List is Empty. No first node");
+            return null;
+        }
+        return head.next;
     }
 
     @Override
     public DoubleEdgeNode<D> last() {
-        return tail;
+        if (isEmpty()) {
+            System.out.println("Double Linked List is Empty. No last node");
+            return null;
+        }
+        return tail.prev;
     }
 
     @Override
     public void addFirst(D data) {
         DoubleEdgeNode<D> newNode = new DoubleEdgeNode<>(data);
-        if (isEmpty()){
-            head = newNode;
-        }else{
-            newNode.next = head;
-            head.prev = newNode;
-            head = newNode;
-        }
+        newNode.next = head.next;
+        newNode.prev = head;
+        head.next.prev = newNode;
+        head.next = newNode;
     }
 
     @Override
     public void addLast(D data) {
         DoubleEdgeNode<D> newNode = new DoubleEdgeNode<>(data);
-        if (isEmpty()) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            newNode.prev = tail;
-            tail.next = newNode;
-            tail = newNode;
-        }
+        newNode.prev = tail.prev;
+        newNode.next = tail;
+        tail.prev.next = newNode;
+        tail.prev = newNode;
     }
-
 
     @Override
     public void removeFirst() {
-        if (isEmpty()){
-            return;
+        if (!isEmpty()) {
+            head.next = head.next.next;
+            head.next.prev = head;
         }
-        head = head.next;
-        head.prev = null;
+        System.out.println("Double Linked List is Empty. Nothing to remove");
     }
 
     @Override
     public void removeLast() {
-        if (isEmpty()){
-            System.out.println("Empty linked list");
-        }else{
-            tail = tail.prev;
-            tail.next = null;
+        if (!isEmpty()) {
+            tail.prev = tail.prev.prev;
+            tail.prev.next = tail;
         }
+        System.out.println("Double Linked List is Empty. Nothing to remove");
     }
 
     @Override
     public void print() {
-
+        DoubleEdgeNode<D> current = head.next;
+        while (current != tail) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
     }
 }

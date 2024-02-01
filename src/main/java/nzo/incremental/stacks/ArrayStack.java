@@ -29,6 +29,7 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public E pop() {
         if (isEmpty()){
+            System.out.println("Stack is empty");
             return null;
         }
         E e = array[size];
@@ -40,6 +41,7 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public E top() {
         if (isEmpty()){
+            System.out.println("Stack is empty");
             return null;
         }
         return array[size];

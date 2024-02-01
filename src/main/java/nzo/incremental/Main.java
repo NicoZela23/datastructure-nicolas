@@ -6,8 +6,8 @@ import nzo.incremental.menu.MenuFactory;
 
 public class Main {
     public static void main(String[] args) {
-        MenuFactory menuFactory = new MainMenu();
         char userChoiceMain;
+        MenuFactory menuFactory = new MainMenu();
         ConsoleMenu currentMenu = menuFactory.createMenu();
         currentMenu.displayMenuCharacters();
         IStructureManager structureManager;

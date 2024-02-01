@@ -2,7 +2,7 @@ package nzo.incremental.menu;
 public class LinkedListMenu extends MenuFactory {
     @Override
     public ConsoleMenu createMenu() {
-        String[] linkedListMenuOptions = {"Add First", "Add Last", "First Node", "Last Node", "Is Empty", "List Size", "Remove First"};
+        String[] linkedListMenuOptions = {"Add First", "Add Last", "First Node", "Last Node", "Is Empty", "List Size", "Remove First", "Print"};
         return new ConsoleMenu("Linked list implementation Menu", linkedListMenuOptions);
     }
 }

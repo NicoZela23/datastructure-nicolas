@@ -75,13 +75,21 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     }
 
-    @Override
     public void print() {
+        if (isEmpty()) {
+            System.out.println("Linked List is empty.");
+            return;
+        }
         Node<T> current = head;
-        while (current != null){
-            System.out.println(current.data);
+        while (current != null) {
+            System.out.print(current.data);
+            if (current.next != null) {
+                System.out.print(" -> ");
+            }
             current = current.next;
         }
+        System.out.println();
     }
+
 
 }
