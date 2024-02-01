@@ -6,7 +6,7 @@ import nzo.incremental.menu.MenuFactory;
 public class MainMenu extends MenuFactory {
     @Override
     public ConsoleMenu createMenu() {
-        String[] mainMenuOptions = {"Linked List", "Double Linked List", "Circular Linked List"};
+        String[] mainMenuOptions = {"Linked List", "Double Linked List", "Exit"};
         return new ConsoleMenu("Main Menu", mainMenuOptions);
     }
 }
