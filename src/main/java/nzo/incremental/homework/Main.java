@@ -11,10 +11,10 @@ public class Main
         HanoiTower.tower[2] = new LinkedListStack<Integer>();
         HanoiTower.tower[3] = new LinkedListStack<Integer>();
 
-        System.out.println("Enter number of disks");
-        int num = scan.nextInt();
+        int num = 4;
 
-        System.out.println("Enter the values separated by spaces:");
+
+        System.out.println("Enter the values:");
         Integer[] values = new Integer[num];
         for (int i = 0; i < num; i++) {
             values[i] = scan.nextInt();

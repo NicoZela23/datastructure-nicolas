@@ -7,10 +7,12 @@ import nzo.incremental.menu.MenuFactory;
 public class Main {
     public static void main(String[] args) {
         char userChoiceMain;
+        IStructureManager structureManager;
+        //menu
         MenuFactory menuFactory = new MainMenu();
         ConsoleMenu currentMenu = menuFactory.createMenu();
         currentMenu.displayMenuCharacters();
-        IStructureManager structureManager;
+
 
         do {
             userChoiceMain = currentMenu.getUserChoiceChar();
