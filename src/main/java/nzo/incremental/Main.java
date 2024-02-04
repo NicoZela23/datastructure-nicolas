@@ -25,6 +25,18 @@ public class Main {
                     structureManager = StructureManagerFactory.getManager("B");
                     structureManager.run();
                     break;
+                case 'C':
+                    structureManager = StructureManagerFactory.getManager("C");
+                    structureManager.run();
+                    break;
+                case 'D':
+                    structureManager = StructureManagerFactory.getManager("D");
+                    structureManager.run();
+                    break;
+                case 'E':
+                    structureManager = StructureManagerFactory.getManager("E");
+                    structureManager.run();
+                    break;
             }
         } while (userChoiceMain != 'C');
 
