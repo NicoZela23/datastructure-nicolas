@@ -1,12 +1,13 @@
 package nzo.incremental.stacks;
 
+import nzo.incremental.interfaces.ILinkedList;
 import nzo.incremental.interfaces.IStack;
 import nzo.incremental.linkedlists.LinkedList;
 import nzo.incremental.linkedlists.Node;
 
 public class LinkedListStack<E> implements IStack<E> {
     Node<E> head;
-    private LinkedList<E> list = new LinkedList<>();
+    private ILinkedList<E> list = new LinkedList<>();
     @Override
     public void push(E e) {
         list.addFirst(e);

@@ -3,7 +3,7 @@ package nzo.incremental.linkedlists;
 import nzo.incremental.interfaces.ILinkedList;
 
 public class LinkedList<T> implements ILinkedList<T> {
-    Node<T> head;
+    public Node<T> head;
     @Override
     public int size() {
         if (isEmpty()){
@@ -70,9 +70,7 @@ public class LinkedList<T> implements ILinkedList<T> {
             if (head == null) {
                 System.out.println("The list is now empty.");
             }
-
         }
-
     }
 
     public void print() {
