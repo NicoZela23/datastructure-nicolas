@@ -5,6 +5,7 @@ import nzo.incremental.linkedlists.CircularLinkedListManager;
 import nzo.incremental.linkedlists.DoubleLinkedListManager;
 import nzo.incremental.linkedlists.LinkedListManager;
 import nzo.incremental.queues.ArrayQueueManager;
+import nzo.incremental.queues.DoubleEndedQueueManager;
 import nzo.incremental.queues.LinkedListQueueManager;
 import nzo.incremental.stacks.ArrayStackManager;
 import nzo.incremental.stacks.LinkedListStackManager;
@@ -31,6 +32,9 @@ public class StructureManagerFactory {
         }
         if (structureID.equals("G")){
             return new LinkedListQueueManager();
+        }
+        if (structureID.equals("H")){
+            return new DoubleEndedQueueManager();
         }
         return new NullManager();
     }

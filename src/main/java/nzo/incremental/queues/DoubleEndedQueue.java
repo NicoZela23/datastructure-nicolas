@@ -3,20 +3,27 @@ package nzo.incremental.queues;
 import nzo.incremental.interfaces.IDoubleEndedQueue;
 import nzo.incremental.interfaces.ILinkedList;
 import nzo.incremental.linkedlists.CircularLinkedList;
-import nzo.incremental.linkedlists.LinkedList;
 import nzo.incremental.linkedlists.Node;
 
 public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     Node<D> trailer;
     private ILinkedList<D> list = new CircularLinkedList<>();
+
+    public DoubleEndedQueue() {
+        trailer = new Node<>(null); // Initialize trailer node
+        trailer.next = trailer; // Point trailer node to itself
+    }
+
     @Override
     public void addFirst(D d) {
         list.addFirst(d);
     }
+
     @Override
     public void addLast(D d) {
         list.addLast(d);
     }
+
     @Override
     public D removeFirst() {
         if (isEmpty()) {
@@ -83,3 +90,4 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
         return list.isEmpty();
     }
 }
+

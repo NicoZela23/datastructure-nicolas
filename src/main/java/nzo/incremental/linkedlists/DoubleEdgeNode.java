@@ -1,7 +1,7 @@
 package nzo.incremental.linkedlists;
 
 public class DoubleEdgeNode<D>{
-    D data;
+    public D data;
     DoubleEdgeNode<D>prev;
     DoubleEdgeNode<D>next;
 
