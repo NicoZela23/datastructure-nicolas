@@ -32,22 +32,30 @@ public class BinaryTree implements IBinaryTree {
 
     @Override
     public void delete(int data) {
-
     }
 
     @Override
     public int[] inOrder() {
-        return new int[0];
+        int [] result = new int[size()];
+        inOrder(root,result,0);
+
+        return result;
     }
 
     @Override
     public int[] preOrder() {
-        return new int[0];
+        int [] result = new int[size()];
+        preOrder(root,result,0);
+
+        return result;
     }
 
     @Override
     public int[] postOrder() {
-        return new int[0];
+        int [] result = new int[size()];
+        postOrder(root,result,0);
+
+        return result;
     }
 
     @Override
@@ -66,6 +74,40 @@ public class BinaryTree implements IBinaryTree {
         for (int j : preOrder) {
             System.out.println(j + " ");
         }
+    }
+
+    private static int preOrder(BTNode root, int[] result, int index){
+        if (root == null){
+            return index;
+        }
+        result[index++] = root.data;
+        var i = preOrder(root.left, result, index);
+        i = preOrder(root.right, result, i);
+
+        return i;
+    }
+
+    private static int inOrder(BTNode root, int[] result, int index){
+        if (root == null){
+            return index;
+        }
+        var i = inOrder(root.left, result, index);
+        result[i++] = root.data;
+        i = inOrder(root.right, result, i);
+
+        return i;
+    }
+
+    private static int postOrder(BTNode root, int[] result, int index){
+        if (root == null){
+            return index;
+        }
+        var i = postOrder(root.left, result, index);
+        i = postOrder(root.right, result, i);
+        result[i++] = root.data;
+
+        return i;
+
     }
 
     private static BTNode insert(BTNode root, int data){

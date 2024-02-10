@@ -15,6 +15,8 @@ public class BubbleSort {
             array[i] = scan.nextInt();
         }
 
+
+
         bubblesort(array);
         for (int i : array){
             System.out.print(i + " ");
