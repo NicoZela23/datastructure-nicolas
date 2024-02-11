@@ -32,6 +32,7 @@ public class BinaryTree implements IBinaryTree {
 
     @Override
     public void delete(int data) {
+        root = deleteNode(root, data);
     }
 
     @Override
@@ -70,10 +71,39 @@ public class BinaryTree implements IBinaryTree {
 
     @Override
     public void print() {
-        var preOrder = preOrder();
-        for (int j : preOrder) {
-            System.out.println(j + " ");
+    }
+
+    private BTNode deleteNode(BTNode root, int data) {
+        if (root == null) {
+            return null;
         }
+
+        // Search for the node to be deleted
+        if (data < root.data) {
+            root.left = deleteNode(root.left, data);
+        } else if (data > root.data) {
+            root.right = deleteNode(root.right, data);
+        } else {
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+            root.data = minValue(root.right);
+            // Delete the minimum node in the right subtree
+            root.right = deleteNode(root.right, root.data);
+        }
+
+        return root;
+    }
+
+    private int minValue(BTNode node) {
+        int minVal = node.data;
+        while (node.left != null) {
+            minVal = node.left.data;
+            node = node.left;
+        }
+        return minVal;
     }
 
     private static int preOrder(BTNode root, int[] result, int index){

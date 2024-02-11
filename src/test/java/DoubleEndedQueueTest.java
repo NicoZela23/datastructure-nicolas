@@ -33,7 +33,8 @@ public class DoubleEndedQueueTest {
         queue.addLast(2);
         queue.addLast(1);
         assertEquals(1,queue.removeLast());
-        assertFalse(queue.isEmpty());
+        assertEquals(2,queue.removeLast());
+        assertEquals(1, queue.size());
     }
 
     @Test
@@ -64,5 +65,47 @@ public class DoubleEndedQueueTest {
         queue.removeFirst();
         assertEquals(0, queue.size());
     }
+    @Test
+    public void testAddFirstNull() {
+        IDoubleEndedQueue<Integer> queue = new DoubleEndedQueue<>();
+        queue.addFirst(null);
+        assertNull(queue.first());
+        assertEquals(1, queue.size());
+    }
+
+    @Test
+    public void testAddLastNull() {
+        IDoubleEndedQueue<Integer> queue = new DoubleEndedQueue<>();
+        queue.addLast(null);
+        assertNull(queue.last());
+        assertEquals(1, queue.size());
+    }
+
+    @Test
+    public void testAddFirstAndLastMultiple() {
+        IDoubleEndedQueue<Integer> queue = new DoubleEndedQueue<>();
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                queue.addFirst(i);
+            } else {
+                queue.addLast(i);
+            }
+        }
+        assertEquals(10, queue.size());
+    }
+
+    @Test
+    public void testRemoveFirstAndLastMultiple() {
+        IDoubleEndedQueue<Integer> queue = new DoubleEndedQueue<>();
+        for (int i = 0; i < 10; i++) {
+            queue.addFirst(i);
+        }
+        for (int i = 0; i < 5; i++) {
+            queue.removeFirst();
+            queue.removeLast();
+        }
+        assertEquals(0, queue.size());
+    }
+
 }
 

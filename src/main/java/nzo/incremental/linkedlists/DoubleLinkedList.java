@@ -89,6 +89,10 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
 
     @Override
     public void print() {
+        if (isEmpty()) {
+            System.out.println("Double Linked List is empty.");
+            return;
+        }
         DoubleEdgeNode<D> current = head.next;
         while (current != tail) {
             System.out.print(current.data + " ");
