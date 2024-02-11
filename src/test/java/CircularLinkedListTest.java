@@ -75,5 +75,46 @@ public class CircularLinkedListTest {
         list.addLast(3);
         list.print();
     }
+
+    @Test
+    public void testAddFirstNull() {
+        ILinkedList<Integer> list = new CircularLinkedList<>();
+        list.addFirst(null);
+        assertNull(list.first().data);
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testAddLastNull() {
+        ILinkedList<Integer> list = new CircularLinkedList<>();
+        list.addLast(null);
+        assertNull(list.last().data);
+        assertEquals(1, list.size());
+    }
+
+    @Test
+    public void testAddFirstAndLastMultiple() {
+        ILinkedList<Integer> list = new CircularLinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                list.addFirst(i);
+            } else {
+                list.addLast(i);
+            }
+        }
+        assertEquals(10, list.size());
+    }
+
+    @Test
+    public void testRemoveFirstMultiple() {
+        ILinkedList<Integer> list = new CircularLinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            list.addFirst(i);
+        }
+        for (int i = 0; i < 5; i++) {
+            list.removeFirst();
+        }
+        assertEquals(5, list.size());
+    }
 }
 

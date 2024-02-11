@@ -1,18 +1,14 @@
 package nzo.incremental.queues;
-
 import nzo.incremental.interfaces.IDoubleEndedQueue;
-import nzo.incremental.interfaces.ILinkedList;
-import nzo.incremental.linkedlists.CircularLinkedList;
+import nzo.incremental.interfaces.IDoubleLinkedList;
+import nzo.incremental.linkedlists.DoubleEdgeNode;
+import nzo.incremental.linkedlists.DoubleLinkedList;
 import nzo.incremental.linkedlists.Node;
 
-public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
-    Node<D> trailer;
-    private ILinkedList<D> list = new CircularLinkedList<>();
 
-    public DoubleEndedQueue() {
-        trailer = new Node<>(null); // Initialize trailer node
-        trailer.next = trailer; // Point trailer node to itself
-    }
+public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
+    private IDoubleLinkedList<D> list = new DoubleLinkedList<>();
+    DoubleEdgeNode<D> node;
 
     @Override
     public void addFirst(D d) {
@@ -38,24 +34,11 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     @Override
     public D removeLast() {
         if (isEmpty()) {
-            System.out.println("Circular Linked List is empty");
+            System.out.println("Queue is empty. Cannot remove last.");
             return null;
         }
         D lastDeletedElement = last();
-        Node<D> current = trailer.next;
-        Node<D> prev = trailer;
-
-        while (current.next != trailer) {
-            prev = current;
-            current = current.next;
-        }
-
-        if (prev == trailer) {
-            trailer = null;
-        } else {
-            prev.next = trailer.next;
-            trailer = prev;
-        }
+        list.removeLast();
         return lastDeletedElement;
     }
 
@@ -79,9 +62,6 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
 
     @Override
     public int size() {
-        if (isEmpty()){
-            return 0;
-        }
         return list.size();
     }
 
@@ -89,5 +69,17 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     public boolean isEmpty() {
         return list.isEmpty();
     }
-}
 
+    public void print() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        DoubleEdgeNode<D> current = list.first();
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+}

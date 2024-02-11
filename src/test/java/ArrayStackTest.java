@@ -1,5 +1,6 @@
 import nzo.incremental.interfaces.IStack;
 import nzo.incremental.stacks.ArrayStack;
+import nzo.incremental.stacks.LinkedListStack;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,14 +54,38 @@ public class ArrayStackTest {
         stack.pop();
         assertEquals(0, stack.size());
     }
+    @Test
+    public void testPushNull() {
+        IStack<Integer> stack = new ArrayStack<>();
+        stack.push(null);
+        assertNull(stack.top());
+        assertEquals(1, stack.size());
+    }
 
     @Test
-    public void testPrint() {
+    public void testPushAndPopMultiple() {
         IStack<Integer> stack = new ArrayStack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.print();
+        for (int i = 0; i < 10; i++) {
+            stack.push(i);
+        }
+        for (int i = 9; i >= 0; i--) {
+            assertEquals(i, stack.pop());
+        }
+        assertTrue(stack.isEmpty());
     }
+
+    @Test
+    public void testSizeAfterPushAndPop() {
+        IStack<Integer> stack = new LinkedListStack<>();
+        for (int i = 0; i < 5; i++) {
+            stack.push(i);
+        }
+        for (int i = 0; i < 3; i++) {
+            stack.pop();
+        }
+        assertEquals(2, stack.size());
+        assertEquals(1, stack.top());
+    }
+
 }
 
