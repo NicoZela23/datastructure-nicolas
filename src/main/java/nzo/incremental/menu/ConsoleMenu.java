@@ -12,7 +12,7 @@ public class ConsoleMenu {
     }
 
     public void displayMenu(){
-        System.out.println("***************************************");
+        System.out.println("\u001B[97m" + "***************************************");
         System.out.println("*   " + title);
         System.out.println("***************************************");
 
@@ -22,7 +22,7 @@ public class ConsoleMenu {
         System.out.println("*********************************");
     }
     public void displayMenuCharacters() {
-        System.out.println("***************************************");
+        System.out.println("\u001B[97m" + "***************************************");
         System.out.println("*   " + title);
         System.out.println("***************************************");
 

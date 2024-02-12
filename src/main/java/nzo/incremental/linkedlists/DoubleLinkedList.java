@@ -36,7 +36,6 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
     @Override
     public DoubleEdgeNode<D> first() {
         if (isEmpty()) {
-            System.out.println("Double Linked List is Empty. No first node");
             return null;
         }
         return head.next;
@@ -45,7 +44,6 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
     @Override
     public DoubleEdgeNode<D> last() {
         if (isEmpty()) {
-            System.out.println("Double Linked List is Empty. No last node");
             return null;
         }
         return tail.prev;
@@ -75,7 +73,6 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
             head.next = head.next.next;
             head.next.prev = head;
         }
-        System.out.println("Double Linked List is Empty. Nothing to remove");
     }
 
     @Override
@@ -84,20 +81,23 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
             tail.prev = tail.prev.prev;
             tail.prev.next = tail;
         }
-        System.out.println("Double Linked List is Empty. Nothing to remove");
     }
 
     @Override
     public void print() {
         if (isEmpty()) {
-            System.out.println("Double Linked List is empty.");
+            System.out.println("\u001B[33m" + "List is empty. Nothing to show");
             return;
         }
         DoubleEdgeNode<D> current = head.next;
         while (current != tail) {
-            System.out.print(current.data + " ");
+            System.out.print("\u001B[33m" + current.data);
+            if (current.next != tail) {
+                System.out.print("\u001B[32m" + " <-> ");
+            }
             current = current.next;
         }
         System.out.println();
     }
+
 }

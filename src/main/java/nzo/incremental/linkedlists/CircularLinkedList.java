@@ -63,7 +63,6 @@ public class CircularLinkedList<T> implements ILinkedList<T> {
     @Override
     public void removeFirst() {
         if (isEmpty()) {
-            System.out.println("Circular Linked List is empty. Cannot remove first.");
             return;
         }
 
@@ -80,17 +79,18 @@ public class CircularLinkedList<T> implements ILinkedList<T> {
     @Override
     public void print() {
         if (isEmpty()) {
-            System.out.println("Circular Linked List is empty.");
+            System.out.println("\u001B[33m" + "List is empty. Nothing to show");
             return;
         }
         Node<T> current = trailer.next;
         do {
-            System.out.print(current.data + " ");
+            System.out.print("\u001B[33m" + current.data);
+            if (current.next != trailer.next) {
+                System.out.print("\u001B[32m" + " -> ");
+            }
             current = current.next;
         } while (current != trailer.next);
 
         System.out.println();
     }
-
-
 }

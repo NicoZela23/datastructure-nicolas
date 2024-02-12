@@ -67,22 +67,19 @@ public class LinkedList<T> implements ILinkedList<T> {
     public void removeFirst() {
         if (!isEmpty()) {
             head = head.next;
-            if (head == null) {
-                System.out.println("The list is now empty.");
-            }
         }
     }
 
     public void print() {
         if (isEmpty()) {
-            System.out.println("Linked List is empty.");
+            System.out.println("\u001B[33m" + "List is empty. Nothing to show");
             return;
         }
         Node<T> current = head;
         while (current != null) {
-            System.out.print(current.data);
+            System.out.print("\u001B[33m" + current.data);
             if (current.next != null) {
-                System.out.print(" -> ");
+                System.out.print("\u001B[32m" + " -> ");
             }
             current = current.next;
         }

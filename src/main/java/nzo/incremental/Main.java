@@ -11,10 +11,9 @@ public class Main {
         //menu
         MenuFactory menuFactory = new MainMenu();
         ConsoleMenu currentMenu = menuFactory.createMenu();
-        currentMenu.displayMenuCharacters();
-
 
         do {
+            currentMenu.displayMenuCharacters();
             userChoiceMain = currentMenu.getUserChoiceChar();
             switch (userChoiceMain){
                 case 'A':
@@ -29,18 +28,8 @@ public class Main {
                     structureManager = StructureManagerFactory.getManager("C");
                     structureManager.run();
                     break;
-                case 'D':
-                    structureManager = StructureManagerFactory.getManager("D");
-                    structureManager.run();
-                    break;
-                case 'E':
-                    structureManager = StructureManagerFactory.getManager("E");
-                    structureManager.run();
-                    break;
             }
-        } while (userChoiceMain != 'C');
+        } while (userChoiceMain != 'M');
 
     }
-
-
 }

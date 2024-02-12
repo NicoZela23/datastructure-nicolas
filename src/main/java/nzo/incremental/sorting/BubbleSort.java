@@ -2,7 +2,7 @@ package nzo.incremental.sorting;
 
 import java.util.Scanner;
 
-public class BubbleSort {
+public class BubbleSort{
 
     public static void main (String[] args){
         Scanner scan = new Scanner(System.in);
@@ -14,9 +14,6 @@ public class BubbleSort {
         for (int i = 0; i < capacity; i++) {
             array[i] = scan.nextInt();
         }
-
-
-
         bubblesort(array);
         for (int i : array){
             System.out.print(i + " ");
