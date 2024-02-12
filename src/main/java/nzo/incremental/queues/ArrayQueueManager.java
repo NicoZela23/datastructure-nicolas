@@ -1,13 +1,10 @@
 package nzo.incremental.queues;
 
 import nzo.incremental.interfaces.IQueue;
-import nzo.incremental.interfaces.IStack;
 import nzo.incremental.interfaces.IStructureManager;
 import nzo.incremental.menu.ConsoleMenu;
 import nzo.incremental.menu.MenuFactory;
 import nzo.incremental.menu.QueueMenu;
-import nzo.incremental.menu.StackMenu;
-import nzo.incremental.stacks.ArrayStack;
 
 import java.util.Scanner;
 

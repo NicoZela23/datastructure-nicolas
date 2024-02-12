@@ -2,17 +2,27 @@ package nzo.incremental.trees;
 
 import nzo.incremental.interfaces.IBinaryTree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinaryTree implements IBinaryTree {
-    BTNode root;
+    private List<Integer> insertionOrder;
+    public BTNode root;
     public BinaryTree(){
+        insertionOrder = new ArrayList<>();
         root = null;
     }
     public BinaryTree(int data){
         root = new BTNode(data);
+        insertionOrder = new ArrayList<>();
+        insertionOrder.add(data);
     }
     @Override
     public void insert(int data) {
         root = insert(root, data);
+        insertionOrder.add(data);
     }
 
     @Override
@@ -71,14 +81,20 @@ public class BinaryTree implements IBinaryTree {
 
     @Override
     public void print() {
+        if (root == null) {
+            System.out.println("Tree is empty.");
+            return;
+        }
+        for (int value : insertionOrder) {
+            System.out.print("\u001B[32m" + value + " ");
+        }
+        System.out.println();
     }
 
     private BTNode deleteNode(BTNode root, int data) {
         if (root == null) {
             return null;
         }
-
-        // Search for the node to be deleted
         if (data < root.data) {
             root.left = deleteNode(root.left, data);
         } else if (data > root.data) {
@@ -90,7 +106,6 @@ public class BinaryTree implements IBinaryTree {
                 return root.left;
             }
             root.data = minValue(root.right);
-            // Delete the minimum node in the right subtree
             root.right = deleteNode(root.right, root.data);
         }
 

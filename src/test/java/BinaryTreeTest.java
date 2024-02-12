@@ -39,8 +39,7 @@ public class BinaryTreeTest {
 
     @Test
     void testTraversal() {
-        IBinaryTree tree = new BinaryTree();
-        tree.insert(5);
+        IBinaryTree tree = new BinaryTree(5);
         tree.insert(3);
         tree.insert(7);
         tree.insert(2);

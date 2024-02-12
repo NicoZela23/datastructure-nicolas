@@ -90,14 +90,26 @@ public class Graph implements IGraph {
 
     @Override
     public void addNode(GNode node) {
-        graph.putIfAbsent(node, new ArrayList<>());
+        if (!graph.containsKey(node)) {
+            graph.put(node, new ArrayList<>());
+        }
     }
+
 
     @Override
     public void addEdge(GNode source, GNode destination, int weight) {
+        if (!graph.containsKey(source)) {
+            addNode(source);
+        }
+
         List<GEdge> currentNodeEdges = graph.get(source);
-        currentNodeEdges.add(new GEdge(source,destination,weight));
+        if (currentNodeEdges == null) {
+            currentNodeEdges = new ArrayList<>();
+            graph.put(source, currentNodeEdges);
+        }
+        currentNodeEdges.add(new GEdge(source, destination, weight));
     }
+
 
     @Override
     public void removeNode(GNode node) {

@@ -48,6 +48,22 @@ public class Main {
                     structureManager = StructureManagerFactory.getManager("H");
                     structureManager.run();
                     break;
+                case 'I':
+                    structureManager = StructureManagerFactory.getManager("I");
+                    structureManager.run();
+                    break;
+                case 'J':
+                    structureManager = StructureManagerFactory.getManager("J");
+                    structureManager.run();
+                    break;
+                case 'K':
+                    structureManager = StructureManagerFactory.getManager("K");
+                    structureManager.run();
+                    break;
+                case 'L':
+                    structureManager = StructureManagerFactory.getManager("L");
+                    structureManager.run();
+                    break;
             }
         } while (userChoiceMain != 'M');
 

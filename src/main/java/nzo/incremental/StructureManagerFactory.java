@@ -1,5 +1,6 @@
 package nzo.incremental;
 
+import nzo.incremental.graphs.GraphManager;
 import nzo.incremental.interfaces.IStructureManager;
 import nzo.incremental.linkedlists.CircularLinkedListManager;
 import nzo.incremental.linkedlists.DoubleLinkedListManager;
@@ -7,8 +8,11 @@ import nzo.incremental.linkedlists.LinkedListManager;
 import nzo.incremental.queues.ArrayQueueManager;
 import nzo.incremental.queues.DoubleEndedQueueManager;
 import nzo.incremental.queues.LinkedListQueueManager;
+import nzo.incremental.sorting.BubbleSortManager;
+import nzo.incremental.sorting.MergeManager;
 import nzo.incremental.stacks.ArrayStackManager;
 import nzo.incremental.stacks.LinkedListStackManager;
+import nzo.incremental.trees.BinaryTreeManager;
 
 public class StructureManagerFactory {
     public static IStructureManager getManager(String structureID){
@@ -35,6 +39,18 @@ public class StructureManagerFactory {
         }
         if (structureID.equals("H")){
             return new DoubleEndedQueueManager();
+        }
+        if (structureID.equals("I")){
+            return new BinaryTreeManager();
+        }
+        if (structureID.equals("J")){
+            return new GraphManager();
+        }
+        if (structureID.equals("K")){
+            return new MergeManager();
+        }
+        if (structureID.equals("L")){
+            return new BubbleSortManager();
         }
         return new NullManager();
     }

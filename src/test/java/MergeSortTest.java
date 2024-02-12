@@ -8,7 +8,7 @@ public class MergeSortTest {
     public void positiveTest() {
         int[] actual = { 10, 1, 9, 2, 8, 3, 7, 4, 6, 5};
         int[] expected = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        MergeSort.mergeSort(actual, actual.length);
+        MergeSort.mergeSorting(actual, actual.length);
         assertArrayEquals(expected, actual);
     }
 }

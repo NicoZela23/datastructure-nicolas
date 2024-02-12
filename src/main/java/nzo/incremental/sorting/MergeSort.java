@@ -1,28 +1,8 @@
 package nzo.incremental.sorting;
 
-import java.util.Scanner;
-
 public class MergeSort {
 
-    public static void main (String[] args){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the capacity of the array:");
-        int capacity = scan.nextInt();
-
-        System.out.println("Enter the values:");
-        int[] array = new int[capacity];
-        for (int i = 0; i < capacity; i++) {
-            array[i] = scan.nextInt();
-        }
-
-
-
-        mergeSort(array, array.length);
-        for (int i : array){
-            System.out.print(i + " ");
-        }
-    }
-    public static void mergeSort(int[] a, int n) {
+    public static void mergeSorting(int[] a, int n) {
         if (n < 2) {
             return;
         }
@@ -36,8 +16,8 @@ public class MergeSort {
         for (int i = mid; i < n; i++) {
             r[i - mid] = a[i];
         }
-        mergeSort(l, mid);
-        mergeSort(r, n - mid);
+        mergeSorting(l, mid);
+        mergeSorting(r, n - mid);
 
         merge(a, l, r, mid, n - mid);
     }
