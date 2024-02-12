@@ -26,7 +26,7 @@ public class ArrayQueue<Q> implements IQueue<Q> {
     @Override
     public Q dequeue() {
         if (isEmpty()){
-            System.out.println("Stack is empty");
+            System.out.println("Queue is empty");
             return null;
         }
         var element = array[0];
@@ -55,5 +55,16 @@ public class ArrayQueue<Q> implements IQueue<Q> {
     @Override
     public int size() {
         return size + 1;
+    }
+
+    public void print() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return;
+        }
+        for (int i = 0; i <= size; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
     }
 }

@@ -44,4 +44,18 @@ public class LinkedListQueue<Q> implements IQueue<Q> {
         }
         return list.size();
     }
+
+    public void print() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        System.out.print("Queue: ");
+        Node<Q> current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
 }

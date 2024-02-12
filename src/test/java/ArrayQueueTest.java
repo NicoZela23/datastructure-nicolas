@@ -1,5 +1,6 @@
 import nzo.incremental.interfaces.IQueue;
 import nzo.incremental.queues.ArrayQueue;
+import nzo.incremental.queues.LinkedListQueue;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,5 +54,47 @@ public class ArrayQueueTest {
         queue.dequeue();
         assertEquals(0, queue.size());
     }
+
+    @Test
+    public void testEnqueueNull() {
+        IQueue<Integer> queue = new ArrayQueue<>();
+        queue.enqueue(null);
+        assertNull(queue.first());
+        assertEquals(1, queue.size());
+    }
+
+    @Test
+    public void testEnqueueAndDequeueMultiple() {
+        IQueue<Integer> queue = new ArrayQueue<>();
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i);
+        }
+        for (int i = 0; i < 10; i++) {
+            assertEquals(i, queue.dequeue());
+        }
+        assertTrue(queue.isEmpty());
+    }
+    @Test
+    public void testAddFirstMultipleElements() {
+        IQueue<Integer> queue = new LinkedListQueue<>();
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i * 2);
+        }
+        assertEquals(10, queue.size());
+        assertEquals(0, queue.first());
+    }
+
+    @Test
+    public void testSizeAfterEnqueueAndDequeue() {
+        IQueue<Integer> queue = new ArrayQueue<>();
+        for (int i = 0; i < 5; i++) {
+            queue.enqueue(i);
+        }
+        for (int i = 0; i < 3; i++) {
+            queue.dequeue();
+        }
+        assertEquals(2, queue.size());
+    }
+
 }
 
