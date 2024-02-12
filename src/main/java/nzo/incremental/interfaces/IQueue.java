@@ -42,5 +42,13 @@ public interface IQueue<Q> {
      * @return the number of elements in the queue
      */
     int size();
+
+    /**
+     * Prints all elements in the queue.
+     * The order of printing is from the front of the queue to the rear.
+     * The queue remains unchanged after printing.
+     * This method is primarily for debugging purposes.
+     */
+    void print();
 }
 

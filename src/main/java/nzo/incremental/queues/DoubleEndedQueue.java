@@ -1,15 +1,10 @@
 package nzo.incremental.queues;
 import nzo.incremental.interfaces.IDoubleEndedQueue;
 import nzo.incremental.interfaces.IDoubleLinkedList;
-import nzo.incremental.linkedlists.DoubleEdgeNode;
 import nzo.incremental.linkedlists.DoubleLinkedList;
-import nzo.incremental.linkedlists.Node;
-
 
 public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     private IDoubleLinkedList<D> list = new DoubleLinkedList<>();
-    DoubleEdgeNode<D> node;
-
     @Override
     public void addFirst(D d) {
         list.addFirst(d);
@@ -23,7 +18,6 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     @Override
     public D removeFirst() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. Cannot remove first.");
             return null;
         }
         D firstDeletedElement = first();
@@ -34,7 +28,6 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     @Override
     public D removeLast() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. Cannot remove last.");
             return null;
         }
         D lastDeletedElement = last();
@@ -45,7 +38,6 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     @Override
     public D first() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. No first element.");
             return null;
         }
         return list.first().data;
@@ -54,7 +46,6 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
     @Override
     public D last() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. No Last element.");
             return null;
         }
         return list.last().data;
@@ -70,16 +61,14 @@ public class DoubleEndedQueue<D> implements IDoubleEndedQueue<D> {
         return list.isEmpty();
     }
 
+    @Override
     public void print() {
         if (isEmpty()) {
-            System.out.println("Queue is empty.");
+            System.out.println("\u001B[33m" + "Queue is empty. Nothing to show.");
             return;
         }
-        DoubleEdgeNode<D> current = list.first();
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.next;
-        }
-        System.out.println();
+        System.out.print("\u001B[36m" + "First ");
+        list.print();
+        System.out.println("\u001B[36m" + " Last");
     }
 }

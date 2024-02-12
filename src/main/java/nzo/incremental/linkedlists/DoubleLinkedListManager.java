@@ -4,20 +4,19 @@ import nzo.incremental.interfaces.IDoubleLinkedList;
 import nzo.incremental.interfaces.IStructureManager;
 import nzo.incremental.menu.ConsoleMenu;
 import nzo.incremental.menu.DoubleLinkedListMenu;
-import nzo.incremental.menu.LinkedListMenu;
 import nzo.incremental.menu.MenuFactory;
 
 import java.util.Scanner;
 
 public class DoubleLinkedListManager implements IStructureManager {
     private final Scanner scannerValues;
-    private final IDoubleLinkedList DoubleLinkedList;
+    private final IDoubleLinkedList doubleLinkedList;
     private MenuFactory menuFactory;
     private final ConsoleMenu currentMenu;
 
     public DoubleLinkedListManager() {
         scannerValues = new Scanner(System.in);
-        DoubleLinkedList = new DoubleLinkedList();
+        doubleLinkedList = new DoubleLinkedList();
         menuFactory = new DoubleLinkedListMenu();
         currentMenu = menuFactory.createMenu();
     }
@@ -59,43 +58,45 @@ public class DoubleLinkedListManager implements IStructureManager {
                 removeLastElement();
                 break;
             case 9:
-                printLinkedList();
+                printDoubleLinkedList();
                 break;
         }
     }
 
     private void addFirstElement() {
         System.out.println("\u001B[33m" + "Enter the first element of the List:");
+        System.out.print("> ");
         int value = scannerValues.nextInt();
-        DoubleLinkedList.addFirst(value);
+        doubleLinkedList.addFirst(value);
     }
 
     private void addLastElement() {
         System.out.println("\u001B[33m" + "Enter the last element of the List:");
+        System.out.print("> ");
         int value = scannerValues.nextInt();
-        DoubleLinkedList.addLast(value);
+        doubleLinkedList.addLast(value);
     }
 
     private void displayFirstElement() {
-        if (!DoubleLinkedList.isEmpty()) {
+        if (!doubleLinkedList.isEmpty()) {
             System.out.print("\u001B[33m" + "The first element in the List is: ");
-            System.out.println("\u001B[32m" + DoubleLinkedList.first().data);
+            System.out.println("\u001B[32m" + doubleLinkedList.first().data);
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to show");
         }
     }
 
     private void displayLastElement() {
-        if (!DoubleLinkedList.isEmpty()) {
+        if (!doubleLinkedList.isEmpty()) {
             System.out.print("\u001B[33m" + "The last element in the List is: ");
-            System.out.println("\u001B[32m" + DoubleLinkedList.last().data);
+            System.out.println("\u001B[32m" + doubleLinkedList.last().data);
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to show");
         }
     }
 
     private void displayIsEmpty() {
-        if (DoubleLinkedList.isEmpty()) {
+        if (doubleLinkedList.isEmpty()) {
             System.out.println("\u001B[33m" + "List is empty.");
         } else {
             System.out.println("\u001B[33m" + "List is not empty.");
@@ -103,29 +104,29 @@ public class DoubleLinkedListManager implements IStructureManager {
     }
 
     private void displaySize() {
-        System.out.print("\u001B[33m" + "The size of the list is: ");
-        System.out.println("\u001B[32m" + DoubleLinkedList.size());
+        System.out.print("\u001B[33m" + "The size of the List is: ");
+        System.out.println("\u001B[32m" + doubleLinkedList.size());
     }
 
     private void removeFirstElement() {
-        if (!DoubleLinkedList.isEmpty()) {
-            System.out.println("\u001B[33m" + "First element of the list removed");
-            DoubleLinkedList.removeFirst();
+        if (!doubleLinkedList.isEmpty()) {
+            System.out.println("\u001B[33m" + "First element of the List removed");
+            doubleLinkedList.removeFirst();
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to remove");
         }
     }
     private void removeLastElement() {
-        if (!DoubleLinkedList.isEmpty()) {
-            System.out.println("\u001B[33m" + "Last element of the list removed");
-            DoubleLinkedList.removeLast();
+        if (!doubleLinkedList.isEmpty()) {
+            System.out.println("\u001B[33m" + "Last element of the List removed");
+            doubleLinkedList.removeLast();
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to remove");
         }
     }
 
-    private void printLinkedList() {
-        DoubleLinkedList.print();
+    private void printDoubleLinkedList() {
+        doubleLinkedList.print();
     }
 
 }

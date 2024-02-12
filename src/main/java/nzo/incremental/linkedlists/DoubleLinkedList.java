@@ -97,7 +97,6 @@ public class DoubleLinkedList<D> implements IDoubleLinkedList<D> {
             }
             current = current.next;
         }
-        System.out.println();
     }
 
 }

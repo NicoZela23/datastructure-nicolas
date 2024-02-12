@@ -15,7 +15,6 @@ public class LinkedListQueue<Q> implements IQueue<Q> {
     @Override
     public Q dequeue() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. Cannot dequeue.");
             return null;
         }
         Q deletedElement = first();
@@ -26,7 +25,6 @@ public class LinkedListQueue<Q> implements IQueue<Q> {
     @Override
     public Q first() {
         if (isEmpty()) {
-            System.out.println("Queue is empty. No first element.");
             return null;
         }
         return list.first().data;
@@ -45,17 +43,14 @@ public class LinkedListQueue<Q> implements IQueue<Q> {
         return list.size();
     }
 
+    @Override
     public void print() {
         if (isEmpty()) {
-            System.out.println("Queue is empty.");
+            System.out.println("\u001B[33m" + "Queue is empty. Nothing to show.");
             return;
         }
-        System.out.print("Queue: ");
-        Node<Q> current = head;
-        while (current != null) {
-            System.out.print(current.data + " ");
-            current = current.next;
-        }
-        System.out.println();
+        System.out.print("\u001B[36m" + "First ");
+        list.print();
+        System.out.println("\u001B[36m" + " Last");
     }
 }

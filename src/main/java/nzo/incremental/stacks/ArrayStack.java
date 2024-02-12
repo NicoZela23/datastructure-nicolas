@@ -2,8 +2,6 @@ package nzo.incremental.stacks;
 
 import nzo.incremental.interfaces.IStack;
 
-import java.util.SplittableRandom;
-
 public class ArrayStack<E> implements IStack<E> {
 
     private final E[] array;
@@ -20,7 +18,6 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public void push(E e) {
         if (size() == array.length){
-            System.out.println("Stack is full");
             return;
         }
         array[++size] = e;
@@ -29,7 +26,6 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public E pop() {
         if (isEmpty()){
-            System.out.println("Stack is empty");
             return null;
         }
         E e = array[size];
@@ -41,7 +37,6 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public E top() {
         if (isEmpty()){
-            System.out.println("Stack is empty");
             return null;
         }
         return array[size];
@@ -60,11 +55,14 @@ public class ArrayStack<E> implements IStack<E> {
     @Override
     public void print() {
         if (isEmpty()){
-            System.out.println("Stack is empty");
+            System.out.println("\u001B[33m" + "Stack is empty. Nothing to show.");
             return;
         }
+        System.out.print("\u001B[33m" + "Top ");
         for (int i = size() - 1; i >= 0; i--){
-            System.out.println(array[i]);
+            System.out.print("\u001B[32m" + array[i] + " ");
         }
+        System.out.println("\u001B[33m" + "Bottom");
     }
+
 }

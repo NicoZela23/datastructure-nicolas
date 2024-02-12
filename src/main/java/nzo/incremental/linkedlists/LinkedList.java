@@ -83,7 +83,6 @@ public class LinkedList<T> implements ILinkedList<T> {
             }
             current = current.next;
         }
-        System.out.println();
     }
 
 

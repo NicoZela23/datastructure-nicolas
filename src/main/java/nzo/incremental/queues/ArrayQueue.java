@@ -17,7 +17,6 @@ public class ArrayQueue<Q> implements IQueue<Q> {
     @Override
     public void enqueue(Q q) {
         if(size() == array.length){
-            System.out.println("Queue is full");
             return;
         }
         array[++size] = q;
@@ -26,7 +25,6 @@ public class ArrayQueue<Q> implements IQueue<Q> {
     @Override
     public Q dequeue() {
         if (isEmpty()){
-            System.out.println("Queue is empty");
             return null;
         }
         var element = array[0];
@@ -41,7 +39,6 @@ public class ArrayQueue<Q> implements IQueue<Q> {
     @Override
     public Q first() {
         if (isEmpty()){
-            System.out.println("Queue is Empty");
             return null;
         }
         return array[0];
@@ -57,14 +54,16 @@ public class ArrayQueue<Q> implements IQueue<Q> {
         return size + 1;
     }
 
+    @Override
     public void print() {
         if (isEmpty()) {
-            System.out.println("Queue is empty");
+            System.out.println("\u001B[33m" + "Queue is empty. Nothing to show.");
             return;
         }
+        System.out.print("\u001B[33m" + "First ");
         for (int i = 0; i <= size; i++) {
-            System.out.print(array[i] + " ");
+            System.out.print("\u001B[32m" + array[i] + " ");
         }
-        System.out.println();
+        System.out.println("\u001B[33m" + "Last");
     }
 }

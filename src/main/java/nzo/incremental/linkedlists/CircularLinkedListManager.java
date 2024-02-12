@@ -2,6 +2,7 @@ package nzo.incremental.linkedlists;
 
 import nzo.incremental.interfaces.ILinkedList;
 import nzo.incremental.interfaces.IStructureManager;
+import nzo.incremental.menu.CircularLinkedListMenu;
 import nzo.incremental.menu.ConsoleMenu;
 import nzo.incremental.menu.LinkedListMenu;
 import nzo.incremental.menu.MenuFactory;
@@ -17,7 +18,7 @@ public class CircularLinkedListManager implements IStructureManager {
     public CircularLinkedListManager() {
         scannerValues = new Scanner(System.in);
         circularLinkedList = new CircularLinkedList();
-        menuFactory = new LinkedListMenu();
+        menuFactory = new CircularLinkedListMenu();
         currentMenu = menuFactory.createMenu();
     }
 
@@ -55,38 +56,40 @@ public class CircularLinkedListManager implements IStructureManager {
                 removeFirstElement();
                 break;
             case 8:
-                printLinkedList();
+                printCircularLinkedList();
                 break;
         }
     }
 
     private void addFirstElement() {
         System.out.println("\u001B[33m" + "Enter the first element of the List:");
+        System.out.print("> ");
         int value = scannerValues.nextInt();
         circularLinkedList.addFirst(value);
     }
 
     private void addLastElement() {
         System.out.println("\u001B[33m" + "Enter the last element of the List:");
+        System.out.print("> ");
         int value = scannerValues.nextInt();
         circularLinkedList.addLast(value);
     }
 
     private void displayFirstElement() {
         if (!circularLinkedList.isEmpty()) {
-            System.out.print("\u001B[33m" + "The first element in the list is: ");
+            System.out.print("\u001B[33m" + "The first element in the List is: ");
             System.out.println("\u001B[32m" + circularLinkedList.first().data);
         } else {
-            System.out.println("\u001B[33m" + "Linked List is empty. Nothing to show");
+            System.out.println("\u001B[33m" + "List is empty. Nothing to show");
         }
     }
 
     private void displayLastElement() {
         if (!circularLinkedList.isEmpty()) {
-            System.out.print("\u001B[33m" + "The last element in the list is: ");
+            System.out.print("\u001B[33m" + "The last element in the List is: ");
             System.out.println("\u001B[32m" + circularLinkedList.last().data);
         } else {
-            System.out.println("\u001B[33m" + "Linked List is empty. Nothing to show");
+            System.out.println("\u001B[33m" + "List is empty. Nothing to show");
         }
     }
 
@@ -99,20 +102,20 @@ public class CircularLinkedListManager implements IStructureManager {
     }
 
     private void displaySize() {
-        System.out.print("\u001B[33m" + "The size of the list is: ");
+        System.out.print("\u001B[33m" + "The size of the List is: ");
         System.out.println("\u001B[32m" + circularLinkedList.size());
     }
 
     private void removeFirstElement() {
         if (!circularLinkedList.isEmpty()) {
-            System.out.println("\u001B[33m" + "First element of the list removed");
+            System.out.println("\u001B[33m" + "First element of the List removed");
             circularLinkedList.removeFirst();
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to remove");
         }
     }
 
-    private void printLinkedList() {
+    private void printCircularLinkedList() {
         circularLinkedList.print();
     }
 }

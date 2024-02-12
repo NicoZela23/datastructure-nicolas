@@ -60,19 +60,21 @@ public class LinkedListManager implements IStructureManager {
 
     private void addFirstElement() {
         System.out.println("\u001B[33m" + "Enter the first element of the List:");
+        System.out.print("> ");
         int value = scannerValues.nextInt();
         linkedList.addFirst(value);
     }
 
     private void addLastElement() {
         System.out.println("\u001B[33m" + "Enter the last element of the List:");
+        System.out.print("> ");
         int value = scannerValues.nextInt();
         linkedList.addLast(value);
     }
 
     private void displayFirstElement() {
         if (!linkedList.isEmpty()) {
-            System.out.print("\u001B[33m" + "The first element in the list is: ");
+            System.out.print("\u001B[33m" + "The first element in the List is: ");
             System.out.println("\u001B[32m" + linkedList.first().data);
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to show");
@@ -81,7 +83,7 @@ public class LinkedListManager implements IStructureManager {
 
     private void displayLastElement() {
         if (!linkedList.isEmpty()) {
-            System.out.print("\u001B[33m" + "The last element in the list is: ");
+            System.out.print("\u001B[33m" + "The last element in the List is: ");
             System.out.println("\u001B[32m" + linkedList.last().data);
         } else {
             System.out.println("\u001B[33m" + "List is empty. Nothing to show");

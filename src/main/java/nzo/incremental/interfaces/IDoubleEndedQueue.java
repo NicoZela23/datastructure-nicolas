@@ -62,5 +62,13 @@ public interface IDoubleEndedQueue<D> {
      * @return true if the deque is empty, false otherwise
      */
     boolean isEmpty();
+
+    /**
+     * Prints all elements in the double-ended queue.
+     * The order of printing is from the front of the deque to the rear.
+     * The deque remains unchanged after printing.
+     * This method is primarily for debugging purposes.
+     */
+    void print();
 }
 

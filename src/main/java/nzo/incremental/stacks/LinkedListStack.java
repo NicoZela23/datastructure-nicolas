@@ -16,7 +16,6 @@ public class LinkedListStack<E> implements IStack<E> {
     @Override
     public E pop() {
         if (isEmpty()) {
-            System.out.println("Stack is empty. Cannot pop.");
             return null;
         }
         E topElement = top();
@@ -27,7 +26,6 @@ public class LinkedListStack<E> implements IStack<E> {
     @Override
     public E top() {
         if (isEmpty()) {
-            System.out.println("Stack is empty. No top element.");
             return null;
         }
         return list.first().data;
@@ -49,10 +47,12 @@ public class LinkedListStack<E> implements IStack<E> {
     @Override
     public void print() {
         if (isEmpty()) {
-            System.out.println("Circular Linked List is empty.");
+            System.out.println("Stack is empty. Nothing to show");
             return;
         }
+        System.out.print("\u001B[36m" + "Top ");
         list.print();
+        System.out.println("\u001B[36m" + " Bottom");
     }
     public E get(int index) {
         int size = list.size();
