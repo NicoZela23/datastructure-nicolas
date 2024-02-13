@@ -32,7 +32,6 @@ public interface IBinaryTree {
 
     /**
      * Returns a reference to a specific node in the binary tree.
-     * Note: This method may not be necessary or well-defined for all implementations.
      *
      * @return a reference to a specific node in the binary tree
      */

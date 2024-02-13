@@ -34,9 +34,11 @@ public class BubbleSortManager implements IStructureManager {
     private void performSort(){
         Scanner scan = new Scanner(System.in);
         System.out.println("\u001B[33m" + "Enter the capacity of the array:");
+        System.out.print("> ");
         int capacity = scan.nextInt();
 
         System.out.println("\u001B[33m" + "Enter the values:");
+        System.out.print("> ");
         int[] array = new int[capacity];
         for (int i = 0; i < capacity; i++) {
             array[i] = scan.nextInt();

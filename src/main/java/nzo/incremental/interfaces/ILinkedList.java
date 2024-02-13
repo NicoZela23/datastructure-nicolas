@@ -46,8 +46,8 @@ public interface ILinkedList<T> {
     void addFirst(T data);
 
     /**
-     * Adds a new node containing the specified data to the end of the linked list.
-     *
+//     * Adds a new node containing the specified data to the end of the linked list.
+//     *
      * @param data the data to be added to the end of the linked list
      */
     void addLast(T data);
