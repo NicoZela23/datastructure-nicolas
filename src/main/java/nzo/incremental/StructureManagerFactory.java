@@ -9,7 +9,7 @@ import nzo.incremental.queues.ArrayQueueManager;
 import nzo.incremental.queues.DoubleEndedQueueManager;
 import nzo.incremental.queues.LinkedListQueueManager;
 import nzo.incremental.sorting.BubbleSortManager;
-import nzo.incremental.sorting.MergeManager;
+import nzo.incremental.sorting.MergeSortManager;
 import nzo.incremental.stacks.ArrayStackManager;
 import nzo.incremental.stacks.LinkedListStackManager;
 import nzo.incremental.trees.BinaryTreeManager;
@@ -47,7 +47,7 @@ public class StructureManagerFactory {
             return new GraphManager();
         }
         if (structureID.equals("K")){
-            return new MergeManager();
+            return new MergeSortManager();
         }
         if (structureID.equals("L")){
             return new BubbleSortManager();

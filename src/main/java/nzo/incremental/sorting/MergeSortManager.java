@@ -1,18 +1,19 @@
 package nzo.incremental.sorting;
 
 import nzo.incremental.interfaces.IStructureManager;
-import nzo.incremental.menu.*;
+import nzo.incremental.menu.ConsoleMenu;
+import nzo.incremental.menu.MenuFactory;
+import nzo.incremental.menu.MergeMenu;
 
 import java.util.Scanner;
 
-public class BubbleSortManager implements IStructureManager {
-
-    private BubbleSort bubbleSort;
+public class MergeSortManager implements IStructureManager {
+    private MergeSort mergeSort;
     private MenuFactory menuFactory;
     private final ConsoleMenu currentMenu;
-    public BubbleSortManager() {
-        bubbleSort = new BubbleSort();
-        menuFactory = new BubbleMenu();
+    public MergeSortManager() {
+        mergeSort = new MergeSort();
+        menuFactory = new MergeMenu();
         currentMenu = menuFactory.createMenu();
     }
     @Override
@@ -41,7 +42,7 @@ public class BubbleSortManager implements IStructureManager {
         for (int i = 0; i < capacity; i++) {
             array[i] = scan.nextInt();
         }
-        BubbleSort.bubblesort(array);
+        MergeSort.mergeSorting(array, array.length);
         for (int i : array){
             System.out.print("\u001B[32m" + i + " ");
         }
