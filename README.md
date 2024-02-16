@@ -1,7 +1,4 @@
-
-
-* `Get Root` Returns the root node data of the binary tree.
-  <a name="readme-top"></a>
+ <a name="readme-top"></a>
   ![Maintained][Maintained-shield]
   ![Forks][Forks-shield]
   ![Pull Request][PullRequest-shield]
