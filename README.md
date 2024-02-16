@@ -1,9 +1,12 @@
-<a name="readme-top"></a>
-![Maintained][Maintained-shield]
-![Forks][Forks-shield]
-![Pull Request][PullRequest-shield]
-![Pull Request Closed][PullRequestclosed-shield]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+* `Get Root` Returns the root node data of the binary tree.
+  <a name="readme-top"></a>
+  ![Maintained][Maintained-shield]
+  ![Forks][Forks-shield]
+  ![Pull Request][PullRequest-shield]
+  ![Pull Request Closed][PullRequestclosed-shield]
+  [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -87,7 +90,7 @@ Use the `Run.main` button to see it by yourself.
 
 To run this project, ensure you have Java 21 installed along with any Integrated Development Environment (IDE). Simply execute a local build, and everything will be up and running smoothly.
 
-Clone this project and test it by yourself! 
+Clone this project and test it by yourself!
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -103,10 +106,10 @@ The project showcased here was exclusively developed in Java, leveraging a conso
 
 
 Each option provided to access and experiment with the specific methods within each menu implementation is inherently self-explanatory. This not only offers guidance on usage but also provides insight into the underlying implementation details.
- 
+
 
 ### Main Menu
-The main menu serves as a central hub, facilitating access to each specific data structure menu simply by entering the corresponding character into the console. 
+The main menu serves as a central hub, facilitating access to each specific data structure menu simply by entering the corresponding character into the console.
 ### Linked List
 * `Add First` Adds a new node containing the specified data to the beginning of the linked list. The data to be added to the beginning of the linked list will be inserted by keyboard accepting integer values
 
@@ -129,7 +132,7 @@ The main menu serves as a central hub, facilitating access to each specific data
 * `Remove First` Removes the first node from the linked list. If the linked list is empty, this method does nothing.
 
 
-* `Print` Prints all elements in the linked list. The order of printing is from the first node to the last node. 
+* `Print` Prints all elements in the linked list. The order of printing is from the first node to the last node.
 
 
 * `Exit` Returns to the Main menu
@@ -157,7 +160,7 @@ The main menu serves as a central hub, facilitating access to each specific data
 
 * `Remove First` Removes the first node from the doubly linked list. If the doubly linked list is empty, this method does nothing.
 
-  
+
 * `Remove Last` Removes the last node from the doubly linked list. If the doubly linked list is empty, this method does nothing.
 
 
@@ -298,9 +301,6 @@ being `1` the option to set a root and `2` to use start without one.
 
 
 * `Delete Node` Deletes the node containing the specified data from the binary tree. If the data is not found in the tree, this method does nothing.
-
-
-* `Get Root` Returns the root node data of the binary tree.
 
 
 * `Get Node` Returns a reference to a specific node in the binary tree containing the specified data.
